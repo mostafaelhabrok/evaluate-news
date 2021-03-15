@@ -1,14 +1,14 @@
-var application_key ;
 
-const getKey = async () => {
-    const request = await fetch('/all');
-  
-      const allData = await request.json();
-      //console.log(allData.key);
-      application_key = allData.key
-}
-getKey();
+    var application_key ;
 
+    const getKey = async () => {
+        const request = await fetch('/all');
+      
+          const allData = await request.json();
+          //console.log(allData.key);
+          application_key = allData.key
+    }
+    getKey();
 
 function sendData(inputText) {
     console.log("::: sending data to api :::", inputText);
@@ -16,7 +16,7 @@ function sendData(inputText) {
 
 
 
-    fetch("https://api.meaningcloud.com/sentiment-2.1?key="+application_key+"&of=json&txt="+
+    fetch("https://api.meaningcloud.com/sentiment-2.1?key="+application_key+"&of=json&url="+
     inputText+"&model=general&lang=en")
     .then(res => {
         return res.json()
